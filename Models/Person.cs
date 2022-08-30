@@ -23,5 +23,9 @@ namespace PersonService.Models
         [Required]
         public string Password { get; set; }
 
+
+        [Required]
+        public string wilaya { get; set; }
+
     }
 }
