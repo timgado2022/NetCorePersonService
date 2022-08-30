@@ -350,11 +350,6 @@ MigrationBackup/
 .ionide/
 
 
-#Migration
-**/[Mm]igrations/
-**/[Mm]igration/
-[Mm]igrations/
-[Mm]igration/
 
 #logs
 **/[Ll]ogs/
