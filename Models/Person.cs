@@ -27,5 +27,8 @@ namespace PersonService.Models
         [Required]
         public string wilaya { get; set; }
 
+        [Required]
+        public string commune { get; set; }
+
     }
 }
