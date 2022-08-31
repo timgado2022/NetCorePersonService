@@ -22,6 +22,7 @@ namespace PersonService
 {
     public class Startup
     {
+        private static readonly string corsAllowAll = "AllowAll";
         public IConfiguration Configuration { get; }
         private readonly IWebHostEnvironment _env;
 
@@ -46,8 +47,19 @@ namespace PersonService
                 services.AddDbContext<AppDbContext>(opt =>
                       opt.UseMySQL(Configuration.GetConnectionString("PersonsConn")));
 
-           // }
-     
+            // }
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: corsAllowAll,
+                   builder =>
+                   {
+                       builder.AllowAnyOrigin();
+                       builder.AllowAnyMethod();
+                       builder.AllowAnyHeader();
+
+                   });
+            });
 
             services.AddScoped<IPersonRepo, PersonRepo>();
  
@@ -74,9 +86,9 @@ namespace PersonService
             }
 
             //app.UseHttpsRedirection();
-
+            
             app.UseRouting();
-
+            app.UseCors(corsAllowAll);
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
