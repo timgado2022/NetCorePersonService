@@ -6,11 +6,12 @@ namespace PersonService.Dtos
     {
         [Required]
         public string Name { get; set; }
+ 
 
         [Required]
-        public string Publisher { get; set; }
+        public string Lastname { get; set; }
 
         [Required]
-        public string Cost { get; set; }
+        public string Mail { get; set; }
     }
 }
