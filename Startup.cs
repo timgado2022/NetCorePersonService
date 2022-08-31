@@ -79,7 +79,7 @@ namespace PersonService
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-           // if (env.IsDevelopment())
+            if (env.IsDevelopment())
             {
                 app.MapWhen(context => context.Connection.LocalPort == swaggerPort, app =>
                 {
