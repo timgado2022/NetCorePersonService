@@ -23,6 +23,7 @@ namespace PersonService
     public class Startup
     {
         private static readonly string corsAllowAll = "AllowAll";
+        const int swaggerPort = 6000;
         public IConfiguration Configuration { get; }
         private readonly IWebHostEnvironment _env;
 
@@ -80,13 +81,16 @@ namespace PersonService
         {
            // if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PersonService v1"));
-            }
+                app.MapWhen(context => context.Connection.LocalPort == swaggerPort, app =>
+                {
+                    app.UseDeveloperExceptionPage();
+                    app.UseSwagger();
+                    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PersonService v1"));
+                });
 
+            }
             //app.UseHttpsRedirection();
-            
+
             app.UseRouting();
             app.UseCors(corsAllowAll);
             app.UseAuthorization();
