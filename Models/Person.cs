@@ -15,19 +15,22 @@ namespace PersonService.Models
         public string Lastname { get; set; }
 
         [Required]
-        public uint Age { get; set; }
-
-        [Required]
         public string Mail { get; set; }
 
-        [Required]
-        public string Password { get; set; }
+        /*
+                [Required]
+                public int Age { get; set; }
 
 
-        [Required]
-        public string wilaya { get; set; }
 
- 
+                [Required]
+                public string Password { get; set; }
+
+
+                [Required]
+                public string wilaya { get; set; }
+        */
+
 
     }
 }
