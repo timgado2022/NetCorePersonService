@@ -48,6 +48,7 @@ namespace PersonService
                 services.AddDbContext<AppDbContext>(opt =>
                       opt.UseMySQL(Configuration.GetConnectionString("PersonsConn")));
 
+
             // }
 
             services.AddCors(options =>
